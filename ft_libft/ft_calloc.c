@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/11 12:18:51 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/12/10 15:57:38 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "libft.h"
+#include <stdlib.h>
+#include <stdint.h>
 
-
-int main (int ac, char **av, char **env)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	char			*str;
+	void	*s;
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
-	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
-	}
-	return (0);
+	if (size != 0 && nmemb > SIZE_MAX / size)
+		return (NULL);
+	s = malloc(nmemb * size);
+	if (!s)
+		return (NULL);
+	ft_bzero(s, size * nmemb);
+	return (s);
 }

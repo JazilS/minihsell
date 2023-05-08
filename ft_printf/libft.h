@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/11 14:00:37 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/12/10 18:15:46 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#ifndef LIBFT_H
+# define LIBFT_H
+# include<stdio.h>
+# include<stddef.h>
+# include<stdlib.h>
+# include<string.h>
+# include<unistd.h>
 
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *s);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
-int main (int ac, char **av, char **env)
-{
-	char			*str;
-
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
-	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
-	}
-	return (0);
-}
+#endif

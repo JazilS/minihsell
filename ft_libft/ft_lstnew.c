@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/15 15:37:58 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/15 17:25:58 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include"libft.h"
 
-
-int main (int ac, char **av, char **env)
+t_list	*ft_lstnew(void *content)
 {
-	char			*str;
+	t_list	*liste;
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
-	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
-	}
-	return (0);
+	liste = malloc(sizeof(*liste));
+	liste->content = content;
+	liste->next = NULL;
+	return (liste);
 }

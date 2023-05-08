@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/08 12:25:28 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/14 15:05:11 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-
-
-int main (int ac, char **av, char **env)
+int	ft_isprint(int c)
 {
-	char			*str;
-
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
-	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
-	}
+	if (c >= 32 && c < 127)
+		return (1);
 	return (0);
 }

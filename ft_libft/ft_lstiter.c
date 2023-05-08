@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/17 11:46:44 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/17 12:01:18 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include"libft.h"
 
-
-int main (int ac, char **av, char **env)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char			*str;
-
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
+	while (lst != NULL)
 	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
+		(*f)(lst->content);
+		lst = lst->next;
 	}
-	return (0);
 }

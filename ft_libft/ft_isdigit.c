@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/08 11:29:14 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/14 15:09:36 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
-
-
-int main (int ac, char **av, char **env)
+int	ft_isdigit(int c)
 {
-	char			*str;
-
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
-	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
-	}
+	if (c >= 48 && c <= 57)
+		return (1);
 	return (0);
 }

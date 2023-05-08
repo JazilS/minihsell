@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/08 16:28:53 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/12 13:26:24 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include"libft.h"
 
-
-int main (int ac, char **av, char **env)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char			*str;
+	size_t		i;
+	char		*str;
+	const char	*str2;
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
+	i = 0;
+	str = dest;
+	str2 = src;
+	while (i < n)
 	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
+		str[i] = str2[i];
+		i++;
 	}
-	return (0);
+	return (dest);
 }

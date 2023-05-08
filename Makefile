@@ -14,7 +14,13 @@ OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS = main.c 
+SRCS =	main.c\
+		checks.c\
+		forks.c\
+		here_doc.c\
+		main_pipex.c\
+		path.c\
+		pipex_utils.c
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.c=%.o))
 

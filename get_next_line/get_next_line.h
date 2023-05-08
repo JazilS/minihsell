@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/30 12:52:48 by kgezgin           #+#    #+#             */
+/*   Updated: 2023/04/25 17:18:15 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <stdio.h>
+# include <stdlib.h>
+# include <stddef.h>
+# include <stdint.h>
+# include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
 
+# endif
 
-int main (int ac, char **av, char **env)
-{
-	char			*str;
+char	*get_next_line(int fd, int c);
+size_t	my_strlen(char *str);
+char	*my_strjoin(char *s1, char *s2);
+void	*my_calloc(size_t count, size_t size);
+char	*my_strchr(char *s, int c);
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
-	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
-	}
-	return (0);
-}
+#endif

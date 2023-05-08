@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/15 17:13:28 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/15 17:26:15 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include"libft.h"
 
-
-int main (int ac, char **av, char **env)
+int	ft_lstsize(t_list *lst)
 {
-	char			*str;
+	int	i;
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
+	i = 0;
+	while (lst != NULL)
 	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
+		lst = lst->next;
+		i++;
 	}
-	return (0);
+	return (i);
 }

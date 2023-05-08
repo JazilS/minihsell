@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/09 14:56:38 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/18 10:03:26 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include"libft.h"
 
-
-int main (int ac, char **av, char **env)
+char	*ft_strrchr(const char *s, int c)
 {
-	char			*str;
+	int		i;
+	char	*pointer;
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
+	i = ft_strlen(s);
+	pointer = (char *)s;
+	while (i != -1)
 	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
+		if (s[i] == (char)c)
+			return (&pointer[i]);
+		i--;
 	}
 	return (0);
 }

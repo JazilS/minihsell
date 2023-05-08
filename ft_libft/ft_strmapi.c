@@ -1,30 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/08 19:59:19 by kgezgin          ###   ########.fr       */
+/*   Created: 2022/11/12 17:40:45 by kgezgin           #+#    #+#             */
+/*   Updated: 2022/11/18 14:13:55 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include"libft.h"
 
-
-int main (int ac, char **av, char **env)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*str;
+	unsigned int	i;
+	char			*new_str;
 
-	(void)env;
-	(void)ac;
-	(void)av;
-	while (1)
+	new_str = malloc(ft_strlen(s) + 1);
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		str = readline("minishell$> ");
-		add_history(str);
-		
+		new_str[i] = f(i, s[i]);
+		i++;
 	}
-	return (0);
+	new_str[i] = '\0';
+	return (new_str);
 }
+/*
+int	main()
+{
+	char (*f)(unsigned int, char);
+
+	typede
+}
+*/
