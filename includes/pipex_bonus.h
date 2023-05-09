@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:46:11 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/08 19:51:10 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/09 11:37:18 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include"../ft_libft/libft.h"
-# include"../ft_printf/ft_printf.h"
-#include "../includes/minishell.h"
+# include"../libft/libft.h"
+// # include"../ft_printf/ft_printf.h"
+# include "../includes/minishell.h"
 # include"../get_next_line/get_next_line.h"
 
 typedef struct s_data

@@ -15,12 +15,15 @@ SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir))
 SRCS =	main.c\
-		checks.c\
+		check.c\
 		forks.c\
 		here_doc.c\
 		main_pipex.c\
 		path.c\
-		pipex_utils.c
+		pipex_utils.c\
+		list.c
+
+
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.c=%.o))
 
@@ -46,7 +49,8 @@ all: $(NAME)
 ##################################### MANDATORY ##############################
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) includes/minishell.h $(OBJS) -lreadline -o $(NAME)
+	cd libft && make
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) includes/minishell.h libft/libft.a get_next_line/get_next_line.c get_next_line/get_next_line_utils.c -lreadline 
 	@echo "\n\t$(COLOUR_PURPLE)***EXECUTABLE CREATED SUCCESSFULL***\n\n$(COLOUR_END)"
 
 $(OBJS_DIR)/%.o : %.c | $(OBJS_DIR)
@@ -57,11 +61,11 @@ $(OBJS_DIR):
 	@echo "\n\t$(COLOUR_PURPLE)OBJECT DIRECTORY CREATED\n\n$(COLOUR_END)"
 
 clean:
-	rm -rf $(OBJS) $(OBJS_DIR) $(DEPS)
+	rm -rf $(OBJS) $(OBJS_DIR) $(DEPS) && cd libft && make clean
 	@echo "\n\t$(COLOUR_PURPLE)OBJECT DIRECTORY CREATED\n\n$(COLOUR_END)"
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(NAME) && cd libft && make fclean
 	@echo "\n\t$(COLOUR_PURPLE)DELETE EXECUTABLE SUCCESSFULL\n\n$(COLOUR_END)"
 
 norm:
