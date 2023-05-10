@@ -6,32 +6,36 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:12:51 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/09 11:06:39 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/10 15:31:44 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../includes/pipex_bonus.h"
 
-// int	main(int ac, char **av, char **envp)
-// {
-// 	t_data		data;
-// 	int			is_here_doc;
 
-// 	if (!av[1])
-// 		return (ft_putstr_fd("Error\narguments\n", 2), 0);
-// 	if (ft_strncmp("here_doc", av[1], 9) == 0)
-// 		is_here_doc = 1;
-// 	else
-// 		is_here_doc = 0;
-// 	if ((is_here_doc == 0 && ac < 5) || (is_here_doc == 1 && ac < 6))
-// 		return (ft_putstr_fd("Error\narguments\n", 2), 0);
-// 	data_init(&data, ac, av, is_here_doc);
-// 	ft_loop(&data, envp);
-// 	ft_close(&data);
-// 	ft_wait(&data, ac);
-// 	unlink(".here_doc_tmp");
-// 	return (0);
-// }
+/*
+int	main(int ac, char **av, char **envp)
+{
+	t_data		data;
+	int			is_here_doc;
+
+	if (!av[1])
+		return (ft_putstr_fd("Error\narguments\n", 2), 0);
+	if (ft_strncmp("here_doc", av[1], 9) == 0)
+		is_here_doc = 1;
+	else
+		is_here_doc = 0;
+	if ((is_here_doc == 0 && ac < 5) || (is_here_doc == 1 && ac < 6))
+		return (ft_putstr_fd("Error\narguments\n", 2), 0);
+	data_init(&data, ac, av, is_here_doc);
+	ft_loop(&data, envp);
+	ft_close(&data);
+	ft_wait(&data, ac);
+	unlink(".here_doc_tmp");
+	return (0);
+}
+
+
 
 
 void	data_init(t_data *data, int ac, char **av, int is_here_doc)
@@ -98,3 +102,4 @@ void	ft_error(t_data *data, int error)
 	ft_close(data);
 	exit (EXIT_FAILURE);
 }
+*/

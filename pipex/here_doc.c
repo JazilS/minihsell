@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   here_doc_bonus.c                                   :+:      :+:    :+:   */
+/*   here_doc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:50:45 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/02 10:16:12 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/10 15:32:52 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
+
+/*
 void	here_doc(char *limiter, t_data *data)
 {
 	char	*line;
@@ -53,3 +55,5 @@ int	open_here_doc(t_data *data)
 	}
 	return (fd);
 }
+
+*/

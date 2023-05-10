@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   forks_bonus.c                                      :+:      :+:    :+:   */
+/*   forks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:43:59 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/02 14:30:09 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/10 15:32:43 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex_bonus.h"
 
+
+/*
 void	exec(t_data *data, char **envp)
 {
 	if (data->index == 0)
@@ -108,3 +110,5 @@ void	open_infile(t_data *data)
 		exit(EXIT_FAILURE);
 	}
 }
+
+*/

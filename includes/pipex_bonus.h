@@ -6,9 +6,11 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 10:46:11 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/09 11:37:18 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/10 15:48:38 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
 
 #ifndef PIPEX_BONUS_H
 # define PIPEX_BONUS_H
@@ -56,9 +58,9 @@ void	data_init(t_data *data, int ac, char **av, int is_here_doc);
 
 void	get_path(char **envp, t_data *data);
 int		is_path(char *str);
-char	*path_check(t_data *data);
+char	*path_check(t_data *data, t_cmd *list);
 void	ft_path(char **envp, t_data *data);
-void	ft_error_path(t_data *data, char *temp);
+void	ft_error_path(t_data *data, char *temp, t_cmd *list);
 
 void	exec(t_data *data, char **envp);
 void	ft_first_cmd(t_data *data);
@@ -73,4 +75,7 @@ void	ft_close(t_data *data);
 void	ft_wait(t_data *data, int ac);
 int		ft_strcmp(char *s1, char *s2);
 
+
 #endif
+
+*/

@@ -14,14 +14,11 @@ OBJS_DIR = objs
 SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.c $(foreach dir, $(SRCS_DIR), $(dir))
-SRCS =	main.c\
-		check.c\
-		forks.c\
-		here_doc.c\
-		main_pipex.c\
-		path.c\
-		pipex_utils.c\
-		list.c
+SRCS =	check.c\
+		create_cmd_list.c\
+		execution_1.c\
+		pipex_functions.c\
+		temp_list.c\
 
 
 
