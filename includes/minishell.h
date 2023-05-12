@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:03:37 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/12 14:32:44 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/12 17:32:00 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_cmd
 	char			**arg;
 	int				fd_in;
 	int				fd_out;
+	int				is_ok;
 	struct s_cmd	*next;
 }	t_cmd;
 
@@ -87,7 +88,7 @@ t_cmd				*get_value(t_cmd *cmd_list, t_temp *parsed_list);
 t_cmd				*get_fd(t_cmd *cmd_list, t_temp *parsed_list);
 t_cmd				*create_cmd_list(t_temp *parsed_list, t_data *data);
 void				my_lstadd_back_cmd(t_cmd **lst, t_cmd *new);
-t_cmd				*my_lstnew_cmd(int zero);
+t_cmd				*my_lstnew_cmd();
 void				init_data(t_data *data, char **env);
 
 void				redirections(t_cmd *list);
@@ -95,6 +96,7 @@ void				get_path_and_exec(t_cmd *list, t_data *data);
 void				exec_pipe(t_cmd *list, t_data *data);
 void				exec_one_command(t_cmd *list, t_data *data);
 int					main_exec(t_cmd *list, t_data *data);
+void				assign_fd(t_cmd *list, t_data *data, int previous_fd);
 
 int					is_path(char *str);
 char				*path_check(t_data *data, t_cmd *list);

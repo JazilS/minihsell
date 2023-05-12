@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/12 14:20:34 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/12 17:53:47 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,29 +79,50 @@ t_cmd	*get_fd(t_cmd *cmd_list, t_temp *parsed_list)
 {
 	t_cmd	*c_list;
 	t_temp	*p_list;
+	int		i;
+	// int		j;
 	
 	p_list = parsed_list;
 	c_list = cmd_list;
+	// i = 0;
+	// j = 0;
 	while (c_list)
 	{
+		i = 0;
+		// j = 0;
 		while (p_list && p_list->status != PIPE)
 		{
-			if (p_list->status == FILE_IN)
+			if (i == 0 && p_list->status == FILE_IN)
 			{
+				// printf("test i\n");
 				if (c_list->fd_in > 0)
 					close(c_list->fd_in);
 				c_list->fd_in = open(p_list->token, O_RDONLY);
 				if (c_list->fd_in == -1)
-	 				perror("fd_in : ");
+				{
+					perror(p_list->token);
+					c_list->is_ok = 0;
+	 				i = 1;
+					// printf("test i_2\n");
+				}
 			}
-			else if (p_list->status == FILE_OUT)
+			else if (i == 0 && p_list->status == FILE_OUT)
 			{	
+				// printf("test j\n");
 				if (c_list->fd_out > 0)
 					close(c_list->fd_out);
 				c_list->fd_out = open(p_list->token, O_WRONLY);
+				if (c_list->fd_out == -1)
+				{
+					perror(p_list->token);
+					c_list->is_ok = 0;
+	 				i = 1;
+				// 	printf("test j_2\n");
+				}
 			}
 			p_list = p_list->next;
 		}
+		// printf("fd_in = %d\n\n", c_list->fd_in);
 		if (p_list == NULL)
 			break ;
 		else
@@ -120,12 +141,11 @@ t_cmd	*create_cmd_list(t_temp *parsed_list, t_data *data)
 	cmd_list = NULL;
 	while (i != data->cmd_count)
 	{
-		my_lstadd_back_cmd(&cmd_list, my_lstnew_cmd(0));
+		my_lstadd_back_cmd(&cmd_list, my_lstnew_cmd());
 		i++;
 	}
 	cmd_list = get_fd(cmd_list, parsed_list);
 	cmd_list = get_value(cmd_list, parsed_list);
-	print_cmd_list(cmd_list);
 	return (cmd_list);
 }
 
@@ -144,14 +164,15 @@ void	my_lstadd_back_cmd(t_cmd **lst, t_cmd *new)
 	current_node->next = new;
 }
 
-t_cmd	*my_lstnew_cmd(int zero)
+t_cmd	*my_lstnew_cmd()
 {
 	t_cmd	*liste;
 
 	liste = malloc(sizeof(*liste));
 	liste->next = NULL;
-	liste->fd_in = zero;
-	liste->fd_out = zero;
+	liste->fd_in = 0;
+	liste->fd_out = 0;
+	liste->is_ok = 1;
 	return (liste);
 }
 
