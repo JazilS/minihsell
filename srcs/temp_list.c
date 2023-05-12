@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 12:03:03 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/10 16:10:50 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/12 14:33:52 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_temp	*my_lstnew(char *content, int status)
 	return (liste);
 }
 
-int	first_char(char **str_split, char *str, t_data *data, int i)
+int	first_char(char *str, int prev_status)
 {
 	if (str[0] == '<' && str[1] == '\0')
 		return (REDIR_IN);
@@ -88,16 +88,11 @@ int	first_char(char **str_split, char *str, t_data *data, int i)
 		return (PIPE);
 	else
 	{
-		if (i == 0 || str_split[i - 1][0] == '|')
-		{
-			data->cmd_count += 1;
-			return (COMMAND);
-		}
-		else if (str_split[i - 1][0] == '>')
-			return (FILE_OUT);
-		else if (str_split[i - 1][0] == '<' && str_split[i - 1][1] == '\0')
+		if (prev_status == REDIR_IN)
 			return (FILE_IN);
-		else if (str_split[i - 1][0] == '<' && str_split[i - 1][1] == '<')
+		else if (prev_status == REDIR_OUT || prev_status == APPEND)
+			return (FILE_OUT);
+		else if (prev_status == HERE_DOC)
 			return (LIMITER);
 		else
 			return (ARG);
@@ -105,23 +100,54 @@ int	first_char(char **str_split, char *str, t_data *data, int i)
 	return (0);
 }
 
+void	get_command(t_temp *list, t_data *data)
+{
+	int		i;
+	t_temp	*temp;
+
+	temp = list;
+	while (temp)
+	{
+		i = 0;
+		while (temp && temp->status != PIPE)
+		{
+			if (temp->status == ARG && i == 0)
+			{
+				temp->status = COMMAND;
+				data->cmd_count += 1;
+				i++;
+			}
+			temp = temp->next;
+		}
+		if (temp == NULL)
+			break ;
+		else
+			temp = temp->next;
+	}
+}
 t_temp *temp_list(t_data *data, char **av, char *str)
 {
 	t_temp	*list;
 	int		i;
 	char	**str_split;
+	int		status;
+	int		prev_status;
 	
 	i = 0;
 	(void)av;
 	// (void)str;
 	list = NULL;
+	prev_status = 0;
 	str_split = ft_split(str , ' ');
 	// str_split = ft_split(av[1] , ' ');
 	while (str_split[i])
 	{
-		my_lstadd_back(&list, my_lstnew(str_split[i], first_char(str_split, str_split[i], data, i)));
+		status = first_char(str_split[i], prev_status);
+		my_lstadd_back(&list, my_lstnew(str_split[i], status));
+		prev_status = status;
 		i++;
 	}
+	get_command(list, data);
 	data->parsed_list_size = i;
 	// print_list(list);
 	// printf("----nombre d'exec = %d\n\n", data->cmd_count);

@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:03:37 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/10 15:59:54 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/12 14:32:44 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void				print_list(t_temp *token);
 void				print_cmd_list(t_cmd *token);
 void				my_lstadd_back(t_temp **lst, t_temp *new);
 t_temp				*my_lstnew(char *content, int status);
-int					first_char(char **str_split, char *str, t_data *data, int i);
+int					first_char(char *str, int prev_status);
 t_temp 				*temp_list(t_data *data, char **av, char *str);
 
 void				get_args(t_cmd *cmd_list, t_temp *parsed_list);

@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 18:27:17 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/10 16:13:24 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/12 14:20:34 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	get_args(t_cmd *cmd_list, t_temp *parsed_list)
 				c_list->arg[i] = p_list->token;
 				i++;
 			}
+			c_list->arg[i] = NULL;
 			p_list = p_list->next;
 		}
 		if (p_list == NULL)
@@ -63,7 +64,7 @@ t_cmd	*get_value(t_cmd *cmd_list, t_temp *parsed_list)
 				i++;
 			p_list = p_list->next;
 		}
-		c_list->arg = malloc(sizeof(char *) * i + 1);
+		c_list->arg = malloc(sizeof(char *) * (i + 1));
 		if (p_list == NULL)
 			break ;
 		else
@@ -124,7 +125,7 @@ t_cmd	*create_cmd_list(t_temp *parsed_list, t_data *data)
 	}
 	cmd_list = get_fd(cmd_list, parsed_list);
 	cmd_list = get_value(cmd_list, parsed_list);
-	// print_cmd_list(cmd_list);
+	print_cmd_list(cmd_list);
 	return (cmd_list);
 }
 

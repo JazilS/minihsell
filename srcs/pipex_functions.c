@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 15:30:52 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/10 15:57:44 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/12 12:46:50 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,18 @@ void	ft_path(char **envp, t_data *data)
 	data->path_begining = ft_split(envp[i] + 5, ':');
 }
 
+
+// corriger
 void	ft_wait(t_data *data)
 {
-	while (data->index-- > 0)
-		waitpid(data->pid[data->index], NULL, 0);
+	int		status;
+	int		i;
+
+	i = 0;
+	status = 0;
+	while (i != data->cmd_count)
+		waitpid(data->pid[data->index], NULL, status);
+	status = WIFEXITED(status);
 	free(data->pid);
+	exit (status);
 }
