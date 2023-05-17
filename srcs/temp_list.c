@@ -40,6 +40,12 @@ void	print_cmd_list(t_cmd *token)
 			printf("arg[%d]  = %s\n", i, temp->arg[i]);
 			i++;
 		}
+		i = 0;
+		while (temp->limiter[i])
+		{
+			printf("limiter[%d]  = %s\n", i, temp->limiter[i]);
+			i++;
+		}
 		printf("command = %s\n", temp->command);
 		printf("fd_in   = %d\n", temp->fd_in);
 		printf("fd_out  = %d\n\n", temp->fd_out);

@@ -10,50 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pipex_bonus.h"
+#include "../includes/minishell.h"
 
 
-/*
-void	here_doc(char *limiter, t_data *data)
+int	here_doc(char *limiter, char *path)
 {
 	char	*line;
+	int		fd;
 
-	data->fd_infile = open_here_doc(data);
+	fd = open_here_doc(path);
 	while (1)
 	{
 		write(1, "> ", 1);
 		line = get_next_line(1, 0);
 		if ((ft_strlen(line) - 1 == ft_strlen(limiter))
 			&& ft_strncmp(line, limiter, ft_strlen(line) - 1) == 0)
-			break ;
+				break ;
 		if (line)
-			ft_putstr_fd(line, data->fd_infile);
+			ft_putstr_fd(line, fd);
 		free(line);
 	}
 	get_next_line(1, 1);
 	if (line)
 		free(line);
-	close(data->fd_infile);
-}
-
-int	open_here_doc(t_data *data)
-{
-	int	fd;
-
-	fd = open(".here_doc_tmp", O_RDWR | O_CREAT | O_TRUNC, 0644);
-	if (fd == -1)
-	{
-		unlink(".here_doc_tmp");
-		fd = open(".here_doc_tmp", O_RDWR | O_CREAT | O_TRUNC, 0644);
-		if (fd == -1)
-		{
-			close(data->fd_pipe[1]);
-			perror(data->av[1]);
-			free(data->pid);
-			exit (EXIT_FAILURE);
-		}
-	}
+	close(fd);
 	return (fd);
 }
+// les deux fichiers tmp s'ouvrent en meme temps
 
-*/
+int	open_here_doc(char *path)
+{
+	int		fd;
+
+	fd = open(path, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (fd == -1)
+	{
+		// unlink(path);
+		// fd = open(path, O_CREAT | O_RDWR | O_TRUNC, 0644);
+		// if (fd == -1)
+		// {
+			// close(data->fd_pipe[1]);
+			perror(path);
+			exit (EXIT_FAILURE);
+			// free(data->pid);
+			// exit (EXIT_FAILURE);
+		// }
+	}
+	// if (path)
+	// 	free(path);
+	return (fd);
+}

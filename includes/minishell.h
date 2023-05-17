@@ -44,6 +44,10 @@ typedef struct s_cmd
 {
 	char			*command;
 	char			**arg;
+	char			**limiter;
+	char			**here_doc_tmp;
+	int				nb_here_doc;
+	int				*fd_here_doc;
 	int				fd_in;
 	int				fd_out;
 	int				is_ok;
@@ -82,6 +86,9 @@ void				my_lstadd_back(t_temp **lst, t_temp *new);
 t_temp				*my_lstnew(char *content, int status);
 int					first_char(char *str, int prev_status);
 t_temp 				*temp_list(t_data *data, char **av, char *str);
+
+int					here_doc(char *limiter, char *path);
+int					open_here_doc(char *path);
 
 void				get_args(t_cmd *cmd_list, t_temp *parsed_list);
 t_cmd				*get_value(t_cmd *cmd_list, t_temp *parsed_list);

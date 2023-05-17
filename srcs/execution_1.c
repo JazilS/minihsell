@@ -36,6 +36,7 @@ void	exec_pipe(t_cmd *list, t_data *data)
 	previous_fd = -1;
 	while (list)
 	{
+		// printf("	fd in avant exec = %d\n\n", list->fd_in);
 		if (list->is_ok)
 		{
 			if (list->next)
@@ -66,6 +67,7 @@ void	exec_pipe(t_cmd *list, t_data *data)
 				// dprintf(2, "fd_in 		= %d\n", list->fd_in);
 				if (list->fd_in == -1)
 				{
+					printf("test");
 					perror("fd_in");
 					// free
 					exit (1);
@@ -110,6 +112,7 @@ void	exec_one_command(t_cmd *list, t_data *data)
 {
 	if (list->is_ok)
 	{
+		data->pid[0] = fork();
 		if (data->pid[0] == 0)
 		{
 			// dprintf(2, "fd_in 		= %d\n", list->fd_in);
@@ -136,6 +139,42 @@ int	main_exec(t_cmd *list, t_data *data)
 	return (0);
 }
 
+void	ft_unlink(t_cmd *list)
+{
+	t_cmd	*temp;
+	int		i;
+
+	temp = list;
+	while (temp)
+	{
+		i = 0;
+		while (temp->here_doc_tmp[i])
+		{
+			unlink (temp->here_doc_tmp[i]);
+			free (temp->here_doc_tmp[i]);
+			free (temp->limiter[i]);
+			i++;
+		}
+		free(temp->here_doc_tmp);
+		free (temp->limiter);
+		temp = temp->next;
+	}
+}
+
+void	ft_free_list(t_cmd **lst)
+{
+	t_cmd	*temp;
+	t_cmd	*tmp2;
+
+	temp = (*lst);
+	while (temp)
+	{
+		tmp2 = temp->next;
+		free(temp);
+		temp = tmp2;
+	}
+}
+
 int main (int ac, char **av, char **env)
 {
 	t_cmd			*cmd_list;
@@ -156,6 +195,9 @@ int main (int ac, char **av, char **env)
 		cmd_list = create_cmd_list(token, &data);
 		(void)cmd_list;
 		main_exec(cmd_list, &data);
+		ft_unlink(cmd_list);
+		// unlink(".here_doc_1.tmp");
+		// unlink(".here_doc_2.tmp");
 		// add_history(str);
 		// free(str);
 	// }
