@@ -26,8 +26,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include"../libft/libft.h"
-// # include"../ft_printf/ft_printf.h"
-# include "../includes/minishell.h"
+# include "minishell.h"
 # include"../get_next_line/get_next_line.h"
 
 typedef struct s_data

@@ -1,0 +1,534 @@
+1733545 execve("./minishell", ["./minishell", "cat | cat | ls"], 0x7ffc5ee8fc50 /* 54 vars */) = 0
+1733545 brk(NULL)                       = 0x5599a5db7000
+1733545 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffce80a4f40) = -1 EINVAL (Invalid argument)
+1733545 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f25609d4000
+1733545 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+1733545 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+1733545 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=102207, ...}, AT_EMPTY_PATH) = 0
+1733545 mmap(NULL, 102207, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f25609bb000
+1733545 close(3)                        = 0
+1733545 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+1733545 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+1733545 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733545 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+1733545 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+1733545 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+1733545 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733545 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f2560793000
+1733545 mmap(0x7f25607bb000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f25607bb000
+1733545 mmap(0x7f2560950000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f2560950000
+1733545 mmap(0x7f25609a8000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f25609a8000
+1733545 mmap(0x7f25609ae000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f25609ae000
+1733545 close(3)                        = 0
+1733545 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f2560790000
+1733545 arch_prctl(ARCH_SET_FS, 0x7f2560790740) = 0
+1733545 set_tid_address(0x7f2560790a10) = 1733545
+1733545 set_robust_list(0x7f2560790a20, 24) = 0
+1733545 rseq(0x7f25607910e0, 0x20, 0, 0x53053053) = 0
+1733545 mprotect(0x7f25609a8000, 16384, PROT_READ) = 0
+1733545 mprotect(0x5599a582a000, 4096, PROT_READ) = 0
+1733545 mprotect(0x7f2560a0e000, 8192, PROT_READ) = 0
+1733545 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+1733545 munmap(0x7f25609bb000, 102207)  = 0
+1733545 getrandom("\x5e\xa9\x9f\x01\x7c\xf2\xe9\x76", 8, GRND_NONBLOCK) = 8
+1733545 brk(NULL)                       = 0x5599a5db7000
+1733545 brk(0x5599a5dd8000)             = 0x5599a5dd8000
+1733545 newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733545 write(1, "---------test--------------- = ["..., 35) = 35
+1733545 pipe2([3, 4], 0)                = 0
+1733545 write(1, "[0]---------fd_in---------------"..., 39) = 39
+1733545 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f2560790a10) = 1733546
+1733546 set_robust_list(0x7f2560790a20, 24 <unfinished ...>
+1733545 write(1, "---------test--------------- = ["..., 35) = 35
+1733546 <... set_robust_list resumed>)  = 0
+1733545 pipe2([5, 6], 0)                = 0
+1733545 write(1, "[1]---------fd_in---------------"..., 39) = 39
+1733545 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD <unfinished ...>
+1733546 newfstatat(2, "",  <unfinished ...>
+1733545 <... clone resumed>, child_tidptr=0x7f2560790a10) = 1733547
+1733546 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733545 close(6 <unfinished ...>
+1733547 set_robust_list(0x7f2560790a20, 24 <unfinished ...>
+1733545 <... close resumed>)            = 0
+1733546 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733545 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD <unfinished ...>
+1733547 <... set_robust_list resumed>)  = 0
+1733546 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733547 newfstatat(2, "",  <unfinished ...>
+1733546 write(2, "[0]--previous fd\t= 0\n", 21 <unfinished ...>
+1733547 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733545 <... clone resumed>, child_tidptr=0x7f2560790a10) = 1733548
+1733548 set_robust_list(0x7f2560790a20, 24 <unfinished ...>
+1733546 <... write resumed>)            = 21
+1733545 wait4(-1,  <unfinished ...>
+1733546 newfstatat(2, "",  <unfinished ...>
+1733548 <... set_robust_list resumed>)  = 0
+1733546 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733546 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733548 newfstatat(2, "",  <unfinished ...>
+1733547 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733548 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733546 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733546 write(2, "[0]--fd_pipe[0]\t\t= 3\n", 21 <unfinished ...>
+1733547 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733548 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733546 <... write resumed>)            = 21
+1733548 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733546 newfstatat(2, "",  <unfinished ...>
+1733548 write(2, "[2]--previous fd\t= 5\n", 21 <unfinished ...>
+1733546 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 <... write resumed>)            = 21
+1733547 write(2, "[1]--previous fd\t= 3\n", 21 <unfinished ...>
+1733548 newfstatat(2, "",  <unfinished ...>
+1733546 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733548 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733547 <... write resumed>)            = 21
+1733548 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733546 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733548 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733547 newfstatat(2, "",  <unfinished ...>
+1733548 write(2, "[2]--fd_pipe[0]\t\t= 5\n", 21 <unfinished ...>
+1733546 write(2, "[0]--fd_pipe[1]\t\t= 4\n", 21 <unfinished ...>
+1733548 <... write resumed>)            = 21
+1733547 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 newfstatat(2, "",  <unfinished ...>
+1733546 <... write resumed>)            = 21
+1733548 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733547 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733548 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733546 newfstatat(2, "",  <unfinished ...>
+1733547 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733547 write(2, "[1]--fd_pipe[0]\t\t= 5\n", 21 <unfinished ...>
+1733548 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733547 <... write resumed>)            = 21
+1733546 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 write(2, "[2]--fd_pipe[1]\t\t= 6\n", 21 <unfinished ...>
+1733547 newfstatat(2, "",  <unfinished ...>
+1733546 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733547 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733546 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733547 lseek(2, 0, SEEK_CUR)           = -1 ESPIPE (Illegal seek)
+1733546 write(2, "[0]--fd_out\t\t= 4\n", 17 <unfinished ...>
+1733547 write(2, "[1]--fd_pipe[1]\t\t= 6\n", 21 <unfinished ...>
+1733546 <... write resumed>)            = 17
+1733548 <... write resumed>)            = 21
+1733546 newfstatat(2, "",  <unfinished ...>
+1733547 <... write resumed>)            = 21
+1733548 newfstatat(2, "",  <unfinished ...>
+1733547 newfstatat(2, "",  <unfinished ...>
+1733546 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733547 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733546 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733548 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733547 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733548 write(2, "[2]--fd_out\t\t= 0\n", 17 <unfinished ...>
+1733546 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733548 <... write resumed>)            = 17
+1733547 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733548 newfstatat(2, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733546 write(2, "[0]--fd_in \t\t= 0\n", 17 <unfinished ...>
+1733548 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733547 write(2, "[1]--fd_out\t\t= 6\n", 17 <unfinished ...>
+1733548 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733546 <... write resumed>)            = 17
+1733548 write(2, "[2]--fd_in \t\t= 5\n", 17 <unfinished ...>
+1733547 <... write resumed>)            = 17
+1733548 <... write resumed>)            = 17
+1733546 dup2(4, 1 <unfinished ...>
+1733548 dup2(5, 0 <unfinished ...>
+1733547 newfstatat(2, "",  <unfinished ...>
+1733548 <... dup2 resumed>)             = 0
+1733547 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 access("/mnt/nfs/homes/kgezgin/bin/ls", X_OK <unfinished ...>
+1733547 lseek(2, 0, SEEK_CUR <unfinished ...>
+1733546 <... dup2 resumed>)             = 1
+1733548 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733548 access("/usr/local/sbin/ls", X_OK <unfinished ...>
+1733547 <... lseek resumed>)            = -1 ESPIPE (Illegal seek)
+1733546 access("/mnt/nfs/homes/kgezgin/bin/cat", X_OK <unfinished ...>
+1733548 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733547 write(2, "[1]--fd_in \t\t= 3\n", 17 <unfinished ...>
+1733548 access("/usr/local/bin/ls", X_OK <unfinished ...>
+1733546 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733548 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733547 <... write resumed>)            = 17
+1733548 access("/usr/sbin/ls", X_OK <unfinished ...>
+1733546 access("/usr/local/sbin/cat", X_OK <unfinished ...>
+1733548 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733547 dup2(3, 0 <unfinished ...>
+1733548 access("/usr/bin/ls", X_OK <unfinished ...>
+1733546 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733547 <... dup2 resumed>)             = 0
+1733548 <... access resumed>)           = 0
+1733546 access("/usr/local/bin/cat", X_OK <unfinished ...>
+1733548 execve("/usr/bin/ls", ["ls"], 0x7ffce80a5120 /* 54 vars */ <unfinished ...>
+1733547 dup2(6, 1 <unfinished ...>
+1733546 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733547 <... dup2 resumed>)             = 1
+1733547 access("/mnt/nfs/homes/kgezgin/bin/cat", X_OK) = -1 ENOENT (No such file or directory)
+1733546 access("/usr/sbin/cat", X_OK <unfinished ...>
+1733547 access("/usr/local/sbin/cat", X_OK <unfinished ...>
+1733548 <... execve resumed>)           = 0
+1733546 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733547 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733546 access("/usr/bin/cat", X_OK <unfinished ...>
+1733548 brk(NULL <unfinished ...>
+1733547 access("/usr/local/bin/cat", X_OK <unfinished ...>
+1733548 <... brk resumed>)              = 0x563a119a5000
+1733546 <... access resumed>)           = 0
+1733547 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733546 execve("/usr/bin/cat", ["cat"], 0x7ffce80a5120 /* 54 vars */ <unfinished ...>
+1733548 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffe53c4f0a0 <unfinished ...>
+1733547 access("/usr/sbin/cat", X_OK <unfinished ...>
+1733548 <... arch_prctl resumed>)       = -1 EINVAL (Invalid argument)
+1733547 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733548 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733547 access("/usr/bin/cat", X_OK <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef02f8000
+1733547 <... access resumed>)           = 0
+1733546 <... execve resumed>)           = 0
+1733548 access("/etc/ld.so.preload", R_OK <unfinished ...>
+1733547 execve("/usr/bin/cat", ["cat"], 0x7ffce80a5120 /* 54 vars */ <unfinished ...>
+1733548 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733546 brk(NULL <unfinished ...>
+1733548 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733546 <... brk resumed>)              = 0x5578d3cca000
+1733548 <... openat resumed>)           = 6
+1733548 newfstatat(6, "",  <unfinished ...>
+1733546 arch_prctl(0x3001 /* ARCH_??? */, 0x7fff0e1db160 <unfinished ...>
+1733548 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=102207, ...}, AT_EMPTY_PATH) = 0
+1733546 <... arch_prctl resumed>)       = -1 EINVAL (Invalid argument)
+1733548 mmap(NULL, 102207, PROT_READ, MAP_PRIVATE, 6, 0) = 0x7f4ef02df000
+1733546 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733548 close(6 <unfinished ...>
+1733547 <... execve resumed>)           = 0
+1733548 <... close resumed>)            = 0
+1733546 <... mmap resumed>)             = 0x7f011f3d1000
+1733548 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733547 brk(NULL <unfinished ...>
+1733546 access("/etc/ld.so.preload", R_OK <unfinished ...>
+1733548 <... openat resumed>)           = 6
+1733547 <... brk resumed>)              = 0x55645605e000
+1733548 read(6,  <unfinished ...>
+1733546 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733548 <... read resumed>"\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1733547 arch_prctl(0x3001 /* ARCH_??? */, 0x7ffcc589d7b0 <unfinished ...>
+1733548 newfstatat(6, "",  <unfinished ...>
+1733546 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733548 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=166280, ...}, AT_EMPTY_PATH) = 0
+1733547 <... arch_prctl resumed>)       = -1 EINVAL (Invalid argument)
+1733548 mmap(NULL, 177672, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 6, 0 <unfinished ...>
+1733546 <... openat resumed>)           = 5
+1733548 <... mmap resumed>)             = 0x7f4ef02b3000
+1733547 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733548 mprotect(0x7f4ef02b9000, 139264, PROT_NONE <unfinished ...>
+1733546 newfstatat(5, "",  <unfinished ...>
+1733548 <... mprotect resumed>)         = 0
+1733547 <... mmap resumed>)             = 0x7f97ab2c0000
+1733548 mmap(0x7f4ef02b9000, 106496, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x6000 <unfinished ...>
+1733546 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=102207, ...}, AT_EMPTY_PATH) = 0
+1733548 <... mmap resumed>)             = 0x7f4ef02b9000
+1733547 access("/etc/ld.so.preload", R_OK <unfinished ...>
+1733548 mmap(0x7f4ef02d3000, 28672, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x20000 <unfinished ...>
+1733546 mmap(NULL, 102207, PROT_READ, MAP_PRIVATE, 5, 0 <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef02d3000
+1733547 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733548 mmap(0x7f4ef02db000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x27000 <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011f3b8000
+1733547 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef02db000
+1733546 close(5 <unfinished ...>
+1733547 <... openat resumed>)           = 7
+1733548 mmap(0x7f4ef02dd000, 5640, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733546 <... close resumed>)            = 0
+1733547 newfstatat(7, "",  <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef02dd000
+1733547 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=102207, ...}, AT_EMPTY_PATH) = 0
+1733546 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733548 close(6 <unfinished ...>
+1733547 mmap(NULL, 102207, PROT_READ, MAP_PRIVATE, 7, 0 <unfinished ...>
+1733548 <... close resumed>)            = 0
+1733546 <... openat resumed>)           = 5
+1733547 <... mmap resumed>)             = 0x7f97ab2a7000
+1733548 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733546 read(5,  <unfinished ...>
+1733547 close(7 <unfinished ...>
+1733548 <... openat resumed>)           = 6
+1733546 <... read resumed>"\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+1733548 read(6,  <unfinished ...>
+1733547 <... close resumed>)            = 0
+1733548 <... read resumed>"\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+1733546 pread64(5,  <unfinished ...>
+1733548 pread64(6,  <unfinished ...>
+1733547 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733548 <... pread64 resumed>"\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733546 <... pread64 resumed>"\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733548 pread64(6,  <unfinished ...>
+1733547 <... openat resumed>)           = 7
+1733548 <... pread64 resumed>"\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+1733546 pread64(5,  <unfinished ...>
+1733548 pread64(6,  <unfinished ...>
+1733547 read(7,  <unfinished ...>
+1733548 <... pread64 resumed>"\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+1733546 <... pread64 resumed>"\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+1733548 newfstatat(6, "",  <unfinished ...>
+1733547 <... read resumed>"\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+1733548 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+1733546 pread64(5,  <unfinished ...>
+1733548 pread64(6,  <unfinished ...>
+1733547 pread64(7,  <unfinished ...>
+1733548 <... pread64 resumed>"\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733546 <... pread64 resumed>"\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+1733548 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 6, 0 <unfinished ...>
+1733547 <... pread64 resumed>"\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733548 <... mmap resumed>)             = 0x7f4ef008b000
+1733546 newfstatat(5, "",  <unfinished ...>
+1733548 mmap(0x7f4ef00b3000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x28000 <unfinished ...>
+1733547 pread64(7,  <unfinished ...>
+1733546 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+1733548 <... mmap resumed>)             = 0x7f4ef00b3000
+1733547 <... pread64 resumed>"\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+1733548 mmap(0x7f4ef0248000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x1bd000 <unfinished ...>
+1733546 pread64(5,  <unfinished ...>
+1733547 pread64(7,  <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef0248000
+1733546 <... pread64 resumed>"\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733548 mmap(0x7f4ef02a0000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x214000 <unfinished ...>
+1733547 <... pread64 resumed>"\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+1733546 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 5, 0 <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef02a0000
+1733547 newfstatat(7, "",  <unfinished ...>
+1733548 mmap(0x7f4ef02a6000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011f190000
+1733547 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+1733548 <... mmap resumed>)             = 0x7f4ef02a6000
+1733547 pread64(7,  <unfinished ...>
+1733546 mmap(0x7f011f1b8000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x28000 <unfinished ...>
+1733548 close(6 <unfinished ...>
+1733547 <... pread64 resumed>"\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+1733548 <... close resumed>)            = 0
+1733546 <... mmap resumed>)             = 0x7f011f1b8000
+1733547 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 7, 0 <unfinished ...>
+1733548 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733546 mmap(0x7f011f34d000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x1bd000 <unfinished ...>
+1733547 <... mmap resumed>)             = 0x7f97ab07f000
+1733548 <... openat resumed>)           = 6
+1733547 mmap(0x7f97ab0a7000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 7, 0x28000 <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011f34d000
+1733548 read(6,  <unfinished ...>
+1733547 <... mmap resumed>)             = 0x7f97ab0a7000
+1733546 mmap(0x7f011f3a5000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 5, 0x214000 <unfinished ...>
+1733548 <... read resumed>"\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+1733547 mmap(0x7f97ab23c000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 7, 0x1bd000 <unfinished ...>
+1733548 newfstatat(6, "",  <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011f3a5000
+1733548 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=613064, ...}, AT_EMPTY_PATH) = 0
+1733547 <... mmap resumed>)             = 0x7f97ab23c000
+1733546 mmap(0x7f011f3ab000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733548 mmap(NULL, 615184, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 6, 0 <unfinished ...>
+1733547 mmap(0x7f97ab294000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 7, 0x214000 <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011f3ab000
+1733548 <... mmap resumed>)             = 0x7f4eefff4000
+1733547 <... mmap resumed>)             = 0x7f97ab294000
+1733548 mmap(0x7f4eefff6000, 438272, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x2000 <unfinished ...>
+1733546 close(5 <unfinished ...>
+1733547 mmap(0x7f97ab29a000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4eefff6000
+1733546 <... close resumed>)            = 0
+1733548 mmap(0x7f4ef0061000, 163840, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x6d000 <unfinished ...>
+1733547 <... mmap resumed>)             = 0x7f97ab29a000
+1733546 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef0061000
+1733547 close(7 <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011f18d000
+1733548 mmap(0x7f4ef0089000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 6, 0x94000 <unfinished ...>
+1733547 <... close resumed>)            = 0
+1733546 arch_prctl(ARCH_SET_FS, 0x7f011f18d740 <unfinished ...>
+1733548 <... mmap resumed>)             = 0x7f4ef0089000
+1733547 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733546 <... arch_prctl resumed>)       = 0
+1733547 <... mmap resumed>)             = 0x7f97ab07c000
+1733548 close(6 <unfinished ...>
+1733546 set_tid_address(0x7f011f18da10 <unfinished ...>
+1733548 <... close resumed>)            = 0
+1733547 arch_prctl(ARCH_SET_FS, 0x7f97ab07c740 <unfinished ...>
+1733546 <... set_tid_address resumed>)  = 1733546
+1733548 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733547 <... arch_prctl resumed>)       = 0
+1733548 <... mmap resumed>)             = 0x7f4eefff1000
+1733546 set_robust_list(0x7f011f18da20, 24 <unfinished ...>
+1733547 set_tid_address(0x7f97ab07ca10 <unfinished ...>
+1733548 arch_prctl(ARCH_SET_FS, 0x7f4eefff1800 <unfinished ...>
+1733546 <... set_robust_list resumed>)  = 0
+1733548 <... arch_prctl resumed>)       = 0
+1733547 <... set_tid_address resumed>)  = 1733547
+1733548 set_tid_address(0x7f4eefff1ad0 <unfinished ...>
+1733546 rseq(0x7f011f18e0e0, 0x20, 0, 0x53053053 <unfinished ...>
+1733548 <... set_tid_address resumed>)  = 1733548
+1733547 set_robust_list(0x7f97ab07ca20, 24 <unfinished ...>
+1733548 set_robust_list(0x7f4eefff1ae0, 24 <unfinished ...>
+1733546 <... rseq resumed>)             = 0
+1733548 <... set_robust_list resumed>)  = 0
+1733547 <... set_robust_list resumed>)  = 0
+1733548 rseq(0x7f4eefff21a0, 0x20, 0, 0x53053053 <unfinished ...>
+1733547 rseq(0x7f97ab07d0e0, 0x20, 0, 0x53053053 <unfinished ...>
+1733548 <... rseq resumed>)             = 0
+1733547 <... rseq resumed>)             = 0
+1733548 mprotect(0x7f4ef02a0000, 16384, PROT_READ <unfinished ...>
+1733547 mprotect(0x7f97ab294000, 16384, PROT_READ <unfinished ...>
+1733546 mprotect(0x7f011f3a5000, 16384, PROT_READ <unfinished ...>
+1733548 <... mprotect resumed>)         = 0
+1733547 <... mprotect resumed>)         = 0
+1733548 mprotect(0x7f4ef0089000, 4096, PROT_READ <unfinished ...>
+1733546 <... mprotect resumed>)         = 0
+1733548 <... mprotect resumed>)         = 0
+1733547 mprotect(0x556455ec5000, 4096, PROT_READ <unfinished ...>
+1733548 mprotect(0x7f4ef02db000, 4096, PROT_READ <unfinished ...>
+1733547 <... mprotect resumed>)         = 0
+1733546 mprotect(0x5578d31ae000, 4096, PROT_READ <unfinished ...>
+1733548 <... mprotect resumed>)         = 0
+1733547 mprotect(0x7f97ab2fa000, 8192, PROT_READ <unfinished ...>
+1733546 <... mprotect resumed>)         = 0
+1733547 <... mprotect resumed>)         = 0
+1733546 mprotect(0x7f011f40b000, 8192, PROT_READ <unfinished ...>
+1733547 prlimit64(0, RLIMIT_STACK, NULL,  <unfinished ...>
+1733546 <... mprotect resumed>)         = 0
+1733547 <... prlimit64 resumed>{rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+1733546 prlimit64(0, RLIMIT_STACK, NULL,  <unfinished ...>
+1733547 munmap(0x7f97ab2a7000, 102207 <unfinished ...>
+1733546 <... prlimit64 resumed>{rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+1733547 <... munmap resumed>)           = 0
+1733546 munmap(0x7f011f3b8000, 102207 <unfinished ...>
+1733548 mprotect(0x563a11434000, 4096, PROT_READ <unfinished ...>
+1733547 getrandom( <unfinished ...>
+1733546 <... munmap resumed>)           = 0
+1733548 <... mprotect resumed>)         = 0
+1733547 <... getrandom resumed>"\xed\xc4\x0f\x6a\x45\xba\x96\xe5", 8, GRND_NONBLOCK) = 8
+1733548 mprotect(0x7f4ef0332000, 8192, PROT_READ <unfinished ...>
+1733547 brk(NULL <unfinished ...>
+1733548 <... mprotect resumed>)         = 0
+1733547 <... brk resumed>)              = 0x55645605e000
+1733546 getrandom( <unfinished ...>
+1733548 prlimit64(0, RLIMIT_STACK, NULL,  <unfinished ...>
+1733547 brk(0x55645607f000 <unfinished ...>
+1733548 <... prlimit64 resumed>{rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+1733547 <... brk resumed>)              = 0x55645607f000
+1733548 munmap(0x7f4ef02df000, 102207 <unfinished ...>
+1733546 <... getrandom resumed>"\x7c\xaf\x55\x71\xdc\xf4\xb1\x4d", 8, GRND_NONBLOCK) = 8
+1733547 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733548 <... munmap resumed>)           = 0
+1733546 brk(NULL <unfinished ...>
+1733547 <... openat resumed>)           = 7
+1733548 statfs("/sys/fs/selinux",  <unfinished ...>
+1733547 newfstatat(7, "",  <unfinished ...>
+1733546 <... brk resumed>)              = 0x5578d3cca000
+1733548 <... statfs resumed>0x7ffe53c4f0e0) = -1 ENOENT (No such file or directory)
+1733547 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=5475184, ...}, AT_EMPTY_PATH) = 0
+1733548 statfs("/selinux",  <unfinished ...>
+1733546 brk(0x5578d3ceb000 <unfinished ...>
+1733548 <... statfs resumed>0x7ffe53c4f0e0) = -1 ENOENT (No such file or directory)
+1733547 mmap(NULL, 5475184, PROT_READ, MAP_PRIVATE, 7, 0 <unfinished ...>
+1733546 <... brk resumed>)              = 0x5578d3ceb000
+1733548 getrandom( <unfinished ...>
+1733547 <... mmap resumed>)             = 0x7f97aab43000
+1733548 <... getrandom resumed>"\x3a\xa3\x8c\x8c\x7a\x81\xe8\xec", 8, GRND_NONBLOCK) = 8
+1733546 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733548 brk(NULL <unfinished ...>
+1733547 close(7 <unfinished ...>
+1733548 <... brk resumed>)              = 0x563a119a5000
+1733546 <... openat resumed>)           = 5
+1733548 brk(0x563a119c6000 <unfinished ...>
+1733547 <... close resumed>)            = 0
+1733548 <... brk resumed>)              = 0x563a119c6000
+1733546 newfstatat(5, "",  <unfinished ...>
+1733548 openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733546 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=5475184, ...}, AT_EMPTY_PATH) = 0
+1733548 <... openat resumed>)           = 6
+1733547 newfstatat(1, "",  <unfinished ...>
+1733548 newfstatat(6, "",  <unfinished ...>
+1733546 mmap(NULL, 5475184, PROT_READ, MAP_PRIVATE, 5, 0 <unfinished ...>
+1733548 <... newfstatat resumed>{st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+1733547 <... newfstatat resumed>{st_mode=S_IFIFO|0600, st_size=0, ...}, AT_EMPTY_PATH) = 0
+1733548 read(6,  <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011ec54000
+1733547 newfstatat(0, "",  <unfinished ...>
+1733546 close(5 <unfinished ...>
+1733547 <... newfstatat resumed>{st_mode=S_IFIFO|0600, st_size=0, ...}, AT_EMPTY_PATH) = 0
+1733548 <... read resumed>"nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 518
+1733547 fadvise64(0, 0, 0, POSIX_FADV_SEQUENTIAL <unfinished ...>
+1733548 read(6,  <unfinished ...>
+1733547 <... fadvise64 resumed>)        = -1 ESPIPE (Illegal seek)
+1733548 <... read resumed>"", 1024)     = 0
+1733547 mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733546 <... close resumed>)            = 0
+1733548 close(6 <unfinished ...>
+1733547 <... mmap resumed>)             = 0x7f97aab21000
+1733548 <... close resumed>)            = 0
+1733548 access("/etc/selinux/config", F_OK <unfinished ...>
+1733547 read(0,  <unfinished ...>
+1733546 newfstatat(1, "",  <unfinished ...>
+1733548 <... access resumed>)           = -1 ENOENT (No such file or directory)
+1733546 <... newfstatat resumed>{st_mode=S_IFIFO|0600, st_size=0, ...}, AT_EMPTY_PATH) = 0
+1733546 newfstatat(0, "",  <unfinished ...>
+1733548 openat(AT_FDCWD, "/usr/lib/locale/locale-archive", O_RDONLY|O_CLOEXEC <unfinished ...>
+1733546 <... newfstatat resumed>{st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 <... openat resumed>)           = 6
+1733546 fadvise64(0, 0, 0, POSIX_FADV_SEQUENTIAL <unfinished ...>
+1733548 newfstatat(6, "",  <unfinished ...>
+1733546 <... fadvise64 resumed>)        = 0
+1733548 <... newfstatat resumed>{st_mode=S_IFREG|0644, st_size=5475184, ...}, AT_EMPTY_PATH) = 0
+1733546 mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+1733548 mmap(NULL, 5475184, PROT_READ, MAP_PRIVATE, 6, 0 <unfinished ...>
+1733546 <... mmap resumed>)             = 0x7f011ec32000
+1733548 <... mmap resumed>)             = 0x7f4eefab8000
+1733546 read(0,  <unfinished ...>
+1733548 close(6)                        = 0
+1733548 ioctl(1, TCGETS, {B38400 opost isig icanon echo ...}) = 0
+1733548 ioctl(1, TIOCGWINSZ, {ws_row=73, ws_col=140, ws_xpixel=0, ws_ypixel=0}) = 0
+1733548 openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 6
+1733548 newfstatat(6, "", {st_mode=S_IFDIR|0755, st_size=4096, ...}, AT_EMPTY_PATH) = 0
+1733548 getdents64(6, 0x563a119ab9f0 /* 16 entries */, 32768) = 456
+1733548 getdents64(6, 0x563a119ab9f0 /* 0 entries */, 32768) = 0
+1733548 close(6)                        = 0
+1733548 newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+1733548 write(1, "get_next_line  in  in2\tincludes "..., 101) = 101
+1733548 close(1)                        = 0
+1733548 close(2)                        = 0
+1733548 exit_group(0)                   = ?
+1733548 +++ exited with 0 +++
+1733545 <... wait4 resumed>NULL, 0, NULL) = 1733548
+1733545 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=1733548, si_uid=102807, si_status=0, si_utime=0, si_stime=0} ---
+1733545 wait4(-1,  <unfinished ...>
+1733546 <... read resumed>"\n", 131072) = 1
+1733546 write(1, "\n", 1 <unfinished ...>
+1733547 <... read resumed>"\n", 131072) = 1
+1733546 <... write resumed>)            = 1
+1733546 read(0,  <unfinished ...>
+1733547 write(1, "\n", 1)               = 1
+1733547 read(0,  <unfinished ...>
+1733546 <... read resumed>"\n", 131072) = 1
+1733546 write(1, "\n", 1 <unfinished ...>
+1733547 <... read resumed>"\n", 131072) = 1
+1733546 <... write resumed>)            = 1
+1733547 write(1, "\n", 1 <unfinished ...>
+1733546 read(0,  <unfinished ...>
+1733547 <... write resumed>)            = 1
+1733547 read(0,  <unfinished ...>
+1733546 <... read resumed>"\n", 131072) = 1
+1733546 write(1, "\n", 1)               = 1
+1733547 <... read resumed>"\n", 131072) = 1
+1733547 write(1, "\n", 1 <unfinished ...>
+1733546 read(0,  <unfinished ...>
+1733547 <... write resumed>)            = 1
+1733547 read(0,  <unfinished ...>
+1733546 <... read resumed>0x7f011ec33000, 131072) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+1733545 <... wait4 resumed>NULL, 0, NULL) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+1733547 <... read resumed>0x7f97aab22000, 131072) = ? ERESTARTSYS (To be restarted if SA_RESTART is set)
+1733546 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+1733545 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+1733547 --- SIGINT {si_signo=SIGINT, si_code=SI_KERNEL} ---
+1733545 +++ killed by SIGINT +++
+1733546 +++ killed by SIGINT +++
+1733547 +++ killed by SIGINT +++

@@ -19,6 +19,8 @@ SRCS =	check.c\
 		execution_1.c\
 		pipex_functions.c\
 		temp_list.c\
+		parsing.c\
+		mr_split.c\
 		here_doc.c
 
 

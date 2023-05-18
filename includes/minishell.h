@@ -3,42 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: red <red@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 00:03:37 by jsabound          #+#    #+#             */
-/*   Updated: 2023/05/12 17:32:00 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/13 19:15:06 by red              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
-# define MINISHELL_H
+#define MINISHELL_H
 
-# include "../libft/libft.h"
-# include"../get_next_line/get_next_line.h"
-# include <readline/history.h>
-# include <readline/readline.h>
-# include <sys/types.h>
-# include <sys/wait.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <errno.h>
-# include <stdio.h>
-# include <stddef.h>
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
-# define REDIR_IN 1
-# define FILE_IN 2
-# define FILE_OUT 3
-# define REDIR_OUT 4
-# define PIPE 5
-# define COMMAND 6
-# define ARG 7
-# define HERE_DOC 8
-# define APPEND 9
-# define LIMITER 10
-
+#include "../libft/libft.h"
+#include "../get_next_line/get_next_line.h"
+#include <readline/history.h>
+#include <readline/readline.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#define REDIR_IN 1
+#define FILE_IN 2
+#define FILE_OUT 3
+#define REDIR_OUT 4
+#define PIPE 5
+#define COMMAND 6
+#define ARG 7
+#define HERE_DOC 8
+#define APPEND 9
+#define LIMITER 10
 
 typedef struct s_cmd
 {
@@ -56,29 +55,43 @@ typedef struct s_cmd
 
 typedef struct s_temp
 {
-	char			*token;
-	int				status;
-	struct s_temp	*next;
-}	t_temp;
+	char *token;
+	int status;
+	struct s_temp *next;
+} t_temp;
+
+typedef struct s_parse
+{
+	char *token;
+	int status;
+	struct s_temp *next;
+} t_parse;
 
 typedef struct s_token
 {
-	char			*token;
-	struct s_token	*next;
-}	t_token;
+	char *token;
+	struct s_token *next;
+} t_token;
 
 typedef struct s_data
 {
-	int				cmd_count;
-	int				parsed_list_size;
-	int				fd_pipe[2];
-	char			*path;
-	int				index;
-	char			**env;
-	char			**path_begining;
-	pid_t			*pid;
-}	t_data;
+	int cmd_count;
+	int parsed_list_size;
+	int fd_pipe[2];
+	char *path;
+	int index;
+	char **env;
+	char **path_begining;
+	t_token *token;
+	pid_t *pid;
+} t_data;
 
+void print_list(t_temp *token);
+void print_cmd_list(t_cmd *token);
+void my_lstadd_back(t_temp **lst, t_temp *new);
+t_temp *my_lstnew(char *content, int status);
+// int first_char(char **str_split, char *str, t_data *data, int i);
+t_temp *temp_list(t_data *data, char **av, char *str);
 
 void				print_list(t_temp *token);
 void				print_cmd_list(t_cmd *token);
@@ -110,6 +123,17 @@ char				*path_check(t_data *data, t_cmd *list);
 void				ft_error_path(t_data *data, char *temp, t_cmd *list);
 void				ft_path(char **envp, t_data *data);
 void				ft_wait(t_data *data);
+
+
+// 
+// 
+// PARSING  
+// 
+// 
+
+// 
+
+char **mr_split(char *str, char *charset);
 
 
 #endif
