@@ -6,7 +6,7 @@
 /*   By: kgezgin <kgezgin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:49:51 by kgezgin           #+#    #+#             */
-/*   Updated: 2023/05/12 17:56:10 by kgezgin          ###   ########.fr       */
+/*   Updated: 2023/05/18 18:43:19 by kgezgin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ void	redirections(t_cmd *list)
 
 void	exec_pipe(t_cmd *list, t_data *data)
 {
+	int	i;
 	int	previous_fd;
 
 	previous_fd = -1;
+	i = 0;
 	while (list)
 	{
 		// printf("	fd in avant exec = %d\n\n", list->fd_in);
@@ -41,9 +43,11 @@ void	exec_pipe(t_cmd *list, t_data *data)
 		{
 			if (list->next)
 			{
+					printf("---------test--------------- = [%d]\n", i);
 					previous_fd = data->fd_pipe[0];
 					if (pipe(data->fd_pipe) == -1)
 						return (perror("Pipe"));
+					printf("[%d]---------fd_in--------------- = [%d]\n", i, list->fd_in);
 					if (list->fd_in == 0)
 						list->fd_in = previous_fd;
 					if (list->fd_out == 0)
@@ -51,7 +55,6 @@ void	exec_pipe(t_cmd *list, t_data *data)
 			}
 			else
 			{
-
 					previous_fd = data->fd_pipe[0];
 					if (list->fd_in == 0)
 						list->fd_in = previous_fd;
@@ -60,11 +63,6 @@ void	exec_pipe(t_cmd *list, t_data *data)
 			data->pid[data->index] = fork();
 			if (data->pid[data->index] == 0)
 			{
-				// dprintf(2, "previous fd	= %d\n", previous_fd);
-				// dprintf(2, "fd_pipe[0]	= %d\n", data->fd_pipe[0]);
-				// dprintf(2, "fd_pipe[1]	= %d\n", data->fd_pipe[1]);
-				// dprintf(2, "fd_out		= %d\n", list->fd_out);
-				// dprintf(2, "fd_in 		= %d\n", list->fd_in);
 				if (list->fd_in == -1)
 				{
 					printf("test");
@@ -78,6 +76,11 @@ void	exec_pipe(t_cmd *list, t_data *data)
 					// free
 					exit (1);
 				}
+				dprintf(2, "[%d]--previous fd	= %d\n", i, previous_fd);
+				dprintf(2, "[%d]--fd_pipe[0]		= %d\n", i, data->fd_pipe[0]);
+				dprintf(2, "[%d]--fd_pipe[1]		= %d\n", i, data->fd_pipe[1]);
+				dprintf(2, "[%d]--fd_out		= %d\n", i, list->fd_out);
+				dprintf(2, "[%d]--fd_in 		= %d\n", i, list->fd_in);
 				redirections(list);
 				get_path_and_exec(list, data);
 			}
@@ -89,6 +92,9 @@ void	exec_pipe(t_cmd *list, t_data *data)
 			list = list->next;
 			data->index++;
 		}
+		if (data->fd_pipe[1])
+			close (data->fd_pipe[1]);
+		i++;
 	}
 }
 void	get_path_and_exec(t_cmd *list, t_data *data)
@@ -195,11 +201,12 @@ int main (int ac, char **av, char **env)
 		cmd_list = create_cmd_list(token, &data);
 		(void)cmd_list;
 		main_exec(cmd_list, &data);
-		ft_unlink(cmd_list);
+		// ft_unlink(cmd_list);
 		// unlink(".here_doc_1.tmp");
 		// unlink(".here_doc_2.tmp");
 		// add_history(str);
 		// free(str);
+		wait (0);
 	// }
 	return (0);
 }
