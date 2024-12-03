@@ -1,4 +1,4 @@
-# Minishell
+# Minishell - 42cursus
 
 ## Description
 Le projet **Minishell** consiste à développer un shell minimaliste en utilisant le langage C. Ce shell doit être capable de recevoir des commandes de l'utilisateur, les exécuter, gérer l'historique des commandes, et prendre en charge un ensemble de fonctionnalités communes d'un shell. Ce projet vise à simuler les comportements d'un shell Unix, comme Bash, tout en implémentant des fonctionnalités spécifiques.
